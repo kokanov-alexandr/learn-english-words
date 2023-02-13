@@ -5,14 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>LEW</title>
 </head>
 <body>
     <?php
         require "../components/header.php";
         require "../settings/db_connect.php";
     ?>
-    <h2>Ваши выученные слова</h2>
+    <div class="mt-3 mb-5">
+        <h3>Выученные слова</h3>
+    </div>
     <?php
     if ($_COOKIE["user"] != ""):
         $user_id = $_COOKIE["user"];
@@ -20,17 +22,13 @@
         if (!count($words)) {
             echo "Здесь пока нет слов!";
         }
-        for ($i = 0; $i < count($words); $i++) {
-        ?>
+        for ($i = 0; $i < count($words); $i++) { ?>
         <p><?=$i + 1 . ") " . $words[$i][2] . " - " . $words[$i][3]?></p>
-    <?php
-        }
+        <?php }
     else:
     ?>
     <p>Войдите или зарегистрируйтесь!</p>
-    <?php
-        endif;
-    ?>
+    <?php endif; ?>
 <br>
 <br>
 <br>
