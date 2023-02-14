@@ -14,18 +14,18 @@
     ?>
     <h2>Learn English Words!</h2>
     <?php if ($_COOKIE["user"] == ""): ?>
-    <div class="mt-3 mb-5">
-        <h3>Авторизация</h3>
-    </div>
-    <form id="sign-in-form">
-        <input type="text" name="login" placeholder="Введите логин" class="form-control" style=""> <br>
-        <input type="password" name="password" placeholder="Введите пароль" class="form-control"> <br>
-        <div>
-            <span class="text-danger" id="sign-in-error-mes"></span>
+        <div class="mt-3 mb-5">
+            <h3>Авторизация</h3>
         </div>
-        <button type="submit" class="btn btn-outline-dark mt-2, mb-2">Войти</button>
-    </form>
-    Ещё на зерегистрированны? <a href="pages/registration.php">Зарегистрироваться</a>
+        <form id="sign-in-form">
+            <input type="text" name="login" placeholder="Введите логин" class="form-control" style=""> <br>
+            <input type="password" name="password" placeholder="Введите пароль" class="form-control"> <br>
+            <div>
+                <span class="text-danger" id="sign-in-error-mes"></span>
+            </div>
+            <button type="submit" class="btn btn-outline-dark mt-2, mb-2">Войти</button>
+        </form>
+        Ещё на зерегистрированны? <a href="pages/registration.php">Зарегистрироваться</a>
         <script>
             $('#sign-in-form').submit(function (e) {
                 e.preventDefault();
@@ -34,7 +34,8 @@
                     method: 'post',
                     data: $(this).serialize(),
                     success: function (data) {
-                            if (data === "Введите логин!" || data === "Введите пароль!" || data === "Неверный пароль или логин!") {
+                            if (data === "Введите логин!" || data === "Введите пароль!" ||
+                                data === "Неверный пароль или логин!" || data === "Ваш аккаунт был заблокирован!") {
                                 $("#sign-in-error-mes").text(data);
                             }
                             else {
@@ -46,6 +47,13 @@
         </script>
     <?php else: ?>
     <p>Привет! Чтобы выйти, нажмите <a href="scripts/php/sign_out.php">здесь</a></p>
+    <?php
+        require "settings/db_connect.php";
+            $user_id = $_COOKIE['user'];
+            $privilege = mysqli_fetch_all(mysqli_query($connect, "SELECT `privilege` FROM `users` WHERE `users`.`id` = '$user_id' AND `privilege` = '1'"));
+            if ($privilege) {
+                require_once "pages/admin_panel.php";
+             } ?>
     <?php endif;?>
 </body>
 </html>

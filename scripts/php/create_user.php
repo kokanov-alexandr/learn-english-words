@@ -31,7 +31,7 @@
     mysqli_query($connect, " INSERT INTO `users` (`id`, `login`, `password`) VALUES (NULL, '$login', '$password');");
     $user = mysqli_fetch_all(mysqli_query($connect, "SELECT `id` FROM `users` WHERE `users`.`login` = '$login';"));
     $id = $user[0][0];
-    setcookie("user", strval($id), time() + 3600 * 12, "/");
+    setcookie("user", $id, time() + 3600 * 12, "/");
 
 
 

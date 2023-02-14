@@ -16,22 +16,31 @@
         <h3>Тестирование</h3>
     </div>
     <?php
-        if ($_COOKIE["user"] != ""):
-            $user_id = $_COOKIE["user"];
-            $words = mysqli_fetch_all(mysqli_query($connect,  "SELECT * FROM `unlearned_words` WHERE `unlearned_words`.`user_id` = '$user_id'"));
-            $count = (count($words) > 15 && count($words) < 20) ? count($words) : max(count($words), 15);
-            if (count($words) < 4) {
-                echo "Слишком мало слов для тестирования!";
-            }
-            else{
-                echo "Тестирование";
-            }
-        else:
+        if ($_COOKIE["user"] === "") { ?>
+            <p>Войдите или зарегистрируйтесь!</p>
+        <?php
+        }
+        if ($_POST["how-are-you"]) {
+            unset($_POST["how-are-you"]) ?>
+            <p>Ок</p>
+            <?php
+        }
+         if (!isset($_POST['start-test'])) { ?>
+            <form method="post">
+                <button type="submit" name="start-test" id="start-test" class="btn btn-outline-dark mt-2, mb-2">Начать тестирование?</button>
+            </form>
+        <?php
+        }
+        else { ?>
+            <form action="<?=$_SERVER['SCRIPT_NAME']?>" method="post">
+                <p>Как дела?</p>
+                <input type="text" name="how-are-you" class="form-control mb-2" placeholder="Расскажи про свои дела)">
+                <button type="submit" class="btn btn-outline-dark mt-2, mb-2">Излить душу</button>
+            </form>
+        <?php
+        }
         ?>
-        <p>Войдите или зарегистрируйтесь!</p>
-        <?php endif; ?>
     <div>
-
     </div>
 </body>
 </html>

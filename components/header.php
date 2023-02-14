@@ -17,4 +17,5 @@
     <a href="../pages/add_word_form.php">Добавление слов</a>
     <a href="../pages/learned_words.php">Выученные слова</a>
     <a href="../pages/test.php">Тестирование</a>
+
 </header>

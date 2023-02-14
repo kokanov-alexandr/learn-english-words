@@ -15,6 +15,10 @@
         return;
     }
 
+    if ($user[0][4] == 1) {
+        echo "Ваш аккаунт был заблокирован!";
+        return;
+    }
     $password = hash("sha512", $_POST['password']);
     if ($login != $user[0][1] || $password != $user[0][2]) {
         echo "Неверный пароль или логин!";
