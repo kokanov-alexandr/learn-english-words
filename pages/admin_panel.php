@@ -72,7 +72,7 @@
                     case "Админ успешно добавлен!":
                         $("#admin-error").addClass("text-success");
                         $("#admin-error").removeClass("text-danger");
-                        $("#admin-error").text(data);
+                        $("#admin-error").text(data);   
                 }
             }
         })
@@ -87,4 +87,6 @@
     <?php
     }
     ?>
+
+
 
