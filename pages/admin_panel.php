@@ -82,11 +82,14 @@
     <?php
     $users = mysqli_fetch_all(mysqli_query($connect, "SELECT `login` FROM `users`"));
 
-    foreach ($users as $user) { ?>
-        <p><?=$user[0]?></p>
+    for ($i = 0; $i < count($users); $i++) {
+        $s = $i + 1 . ") " . $users[$i][0]?>
+        <p class="bg-light"><?=$s?></p>
     <?php
     }
     ?>
 
-
+<br>
+<br>
+<br>
 

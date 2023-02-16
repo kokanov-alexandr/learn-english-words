@@ -11,11 +11,16 @@
 </head>
 <body>
 <div class="container mt-5">
-<header>
-    <a href="../index.php" >Главная</a>
-    <a href="../pages/unlearned_words.php">Невыученные слова</a>
-    <a href="../pages/add_word_form.php">Добавление слов</a>
-    <a href="../pages/learned_words.php">Выученные слова</a>
-    <a href="../pages/test.php">Тестирование</a>
+<header class="alert-secondary ">
+    <div class="col">
+            <a href="../index.php" class="btn btn-outline-dark" type="submit">Главная</a>
+            <a  href="../pages/unlearned_words.php" class="btn btn-outline-dark" type="submit">Невыученные слова</a>
+            <a href="../pages/add_word_form.php" class="btn btn-outline-dark" type="submit">Добавление слов</a>
+            <a  href="../pages/learned_words.php" class="btn btn-outline-dark" type="submit">Выученные слова</a>
+            <a href="../pages/test.php" class="btn btn-outline-dark" type="submit">Тестирование</a>
+    </div>
+    <br>
+    <br>
+
 
 </header>

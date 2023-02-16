@@ -54,6 +54,7 @@
             if ($privilege) {
                 require_once "pages/admin_panel.php";
              } ?>
+
     <?php endif;?>
 </body>
 </html>

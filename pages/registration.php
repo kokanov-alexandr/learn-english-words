@@ -27,7 +27,7 @@
             <span class="text-danger" id="pass-rep-error-mes" class="m-0"></span>
             <input type="password" name="password_repeat" id="reg-password-repeat" placeholder="Повторите пароль" class="form-control"> <br>
         </div>
-        <button type="submit" id="reg-btn" class="btn btn-outline-dark mt-2, mb-2">Зарегистрироваться</button>
+        <button type="submit" id="reg-btn" class="btn btn-outline-dark mt-2 mb-2">Зарегистрироваться</button>
     </form>
     <script>
         function clearErrors() {
