@@ -1,4 +1,6 @@
 <?php
-    setcookie("user", $id, time() - 3600 * 12, "/");
+    foreach($_COOKIE as $key => $value) {
+        setcookie($key, '', time() - 3600, '/');
+    }
     header("Location: /");
 

@@ -1,5 +1,5 @@
 <?php
-    require "../../settings/db_connect.php";
+    require_once "../../settings/db_connect.php";
     $word = $_POST["word"];
     $translate = $_POST["translate"];
     $id = $_COOKIE['user'];

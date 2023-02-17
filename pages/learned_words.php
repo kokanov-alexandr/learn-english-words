@@ -9,8 +9,8 @@
 </head>
 <body>
     <?php
-        require "../components/header.php";
-        require "../settings/db_connect.php";
+        require_once "../components/header.php";
+        require_once  "../settings/db_connect.php";
     ?>
     <div class="mt-3 mb-5">
         <h3>Выученные слова</h3>
@@ -18,6 +18,15 @@
     <?php
     if ($_COOKIE["user"] != ""):
         $user_id = $_COOKIE["user"];
+        $words = mysqli_fetch_all(mysqli_query($connect,  "SELECT * FROM `learned_words` WHERE `learned_words`.`user_id` = '$user_id'"));
+        $date = date('Y-m-d H:i:s');
+        foreach ($words as $word) {
+            if (round((strtotime($date)) - strtotime($word[4])) / 3600 >= 24) {
+                mysqli_query($connect, "DELETE FROM `learned_words` WHERE `learned_words`.`id` = '$word[0]'");
+                mysqli_query($connect, "INSERT INTO `unlearned_words` (`id`, `user_id`, `word`, `translate`) VALUES (NULL, '$word[1]', '$word[2]', '$word[3]')");
+            }
+        }
+
         $words = mysqli_fetch_all(mysqli_query($connect,  "SELECT * FROM `learned_words` WHERE `learned_words`.`user_id` = '$user_id'"));
         if (!count($words)) {
             echo "Здесь пока нет слов!";

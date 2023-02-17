@@ -1,6 +1,6 @@
 <?php
-    require "settings/db_connect.php";
-    ?>
+    require_once "settings/db_connect.php";
+?>
 <div>
 
     <form id="ban-form">
