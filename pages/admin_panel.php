@@ -27,6 +27,7 @@
                     case "Пользователь не найден!":
                     case "Введите логин!":
                     case "Пользователь уже заблокирован!":
+                    case "Невозможно заблокировать самого себя!":
                         $("#bun-error").addClass("text-danger");
                         $("#bun-error").removeClass("text-success");
                         $("#bun-error").text(data);
@@ -34,6 +35,8 @@
                     case "Пользователь успешно заблокирован!":
                         $("#bun-error").addClass("text-success");
                         $("#bun-error").removeClass("text-danger");
+                        $("#bun-error").text(data);
+                    default:
                         $("#bun-error").text(data);
                 }
             }
@@ -64,12 +67,12 @@
                 switch (data) {
                     case "Пользователь не найден!":
                     case "Введите логин!":
-                    case "Пользователь уже является админом!":
+                    case "Пользователь уже является администратором!":
                         $("#admin-error").addClass("text-danger");
                         $("#admin-error").removeClass("text-success");
                         $("#admin-error").text(data);
                         break;
-                    case "Админ успешно добавлен!":
+                    case "Администратор успешно добавлен!":
                         $("#admin-error").addClass("text-success");
                         $("#admin-error").removeClass("text-danger");
                         $("#admin-error").text(data);   

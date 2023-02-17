@@ -15,9 +15,9 @@
     }
 
     if ($user[0][3] == 1) {
-        echo "Пользователь уже является админом!";
+        echo "Пользователь уже является администратором!";
         return;
     }
     if (mysqli_query($connect, "UPDATE `users` SET `users`.`privilege` = '1' WHERE `users`.`login` = '$login'")) {
-        echo "Админ успешно добавлен!";
+        echo "Администратор успешно добавлен!";
     }

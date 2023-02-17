@@ -18,6 +18,11 @@
         echo "Пользователь уже заблокирован!";
         return;
     }
-    if (mysqli_query($connect, "UPDATE `users` SET `users`.`ban` = '1' WHERE `users`.`login` = '$login'")) {
-        echo "Пользователь успешно заблокирован!";
+    $user_id = $_COOKIE['user'];
+    if ($login == mysqli_fetch_all(mysqli_query($connect, "SELECT `login` FROM `users`  WHERE `users`.`id` = '$user_id'"))[0][0]) {
+        echo "Невозможно заблокировать самого себя!";
+        return;
     }
+//    if (mysqli_query($connect, "UPDATE `users` SET `users`.`ban` = '1' WHERE `users`.`login` = '$login'")) {
+//        echo "Пользователь успешно заблокирован!";
+//    }
