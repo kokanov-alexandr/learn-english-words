@@ -16,9 +16,11 @@
     ?>
     <h2>Learn English Words!</h2>
     <?php if ($_SESSION["user"] == ""): ?>
+
         <div class="mt-3 mb-5">
             <h3>Авторизация</h3>
         </div>
+
         <form id="sign-in-form">
             <input type="text" name="login" placeholder="Введите логин" class="form-control" style=""> <br>
             <input type="password" name="password" placeholder="Введите пароль" class="form-control"> <br>
@@ -28,6 +30,7 @@
             <button type="submit" class="btn btn-outline-dark mt-2, mb-2">Войти</button>
         </form>
         Ещё на зерегистрированны? <a href="pages/registration.php">Зарегистрироваться</a>
+
         <script>
             $('#sign-in-form').submit(function (e) {
                 e.preventDefault();
@@ -47,7 +50,9 @@
                 })
             });
         </script>
+
     <?php else:
+
         $user_id = $_SESSION["user"];
         $words = mysqli_fetch_all(mysqli_query($connect,  "SELECT * FROM `learned_words` WHERE `learned_words`.`user_id` = '$user_id'"));
         $date = date('Y-m-d H:i:s');
@@ -57,15 +62,19 @@
                 mysqli_query($connect, "INSERT INTO `unlearned_words` (`id`, `user_id`, `word`, `translate`) VALUES (NULL, '$word[1]', '$word[2]', '$word[3]')");
             }
         }
+
         ?>
+
         <p>Привет! Чтобы выйти, нажмите <a href="scripts/php/sign_out.php">здесь</a></p>
         <?php
-        require "settings/db_connect.php";
+        require_once "pages/categories.php";
+
         $user_id = $_SESSION['user'];
         $privilege = mysqli_fetch_all(mysqli_query($connect, "SELECT `privilege` FROM `users` WHERE `users`.`id` = '$user_id' AND `privilege` = '1'"));
         if ($privilege) {
             require_once "pages/admin_panel.php";
         } ?>
+
     <?php endif; ?>
 </body>
 </html>

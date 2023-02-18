@@ -82,6 +82,9 @@
         })
     })
 </script>
+<form action="../pages/add_words_category_form.php">
+    <button type="submit" class="btn btn-outline-dark mt-2 mb-4" >Добавить категорию слов</button>
+</form>
     <h3>Пользователи сайта</h3>
     <?php
     $users = mysqli_fetch_all(mysqli_query($connect, "SELECT `login` FROM `users`"));

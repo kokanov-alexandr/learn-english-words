@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 192.168.160.152:3306
--- Время создания: Фев 18 2023 г., 14:21
+-- Время создания: Фев 18 2023 г., 18:03
 -- Версия сервера: 8.0.29
 -- Версия PHP: 7.1.33
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- База данных: `learn_english_words`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `categories_words`
+--
+
+CREATE TABLE `categories_words` (
+  `id` int NOT NULL,
+  `category` varchar(40) NOT NULL,
+  `word` text NOT NULL,
+  `translate` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `categories_words`
+--
+
+INSERT INTO `categories_words` (`id`, `category`, `word`, `translate`) VALUES
+(15, 'цифры', 'one', 'один'),
+(16, 'цифры', 'two', 'два'),
+(17, 'цифры', 'three', 'три'),
+(18, 'цифры', 'four', 'четыре');
 
 -- --------------------------------------------------------
 
@@ -53,50 +76,8 @@ CREATE TABLE `unlearned_words` (
 --
 
 INSERT INTO `unlearned_words` (`id`, `user_id`, `word`, `translate`) VALUES
-(4, 38, 'ss', 'sss'),
-(5, 39, 'www', 'www'),
-(6, 39, 'ww', 'wwt'),
-(7, 40, 'ghj', 'jkljkl'),
-(8, 40, 'klj', 'jlkjlk'),
-(176, 41, 'fdsfds', 'fasdf'),
-(177, 41, '111', '111'),
-(178, 41, 'свысыв', 'сывсв'),
-(179, 41, '', ''),
-(180, 41, '', ''),
-(181, 41, '', ''),
-(182, 41, '', ''),
-(183, 41, '', ''),
-(184, 41, '', ''),
-(185, 42, '1234', '4123'),
-(234, 73, 'авмама', 'фычыф'),
-(235, 79, 'hi', 'привет'),
-(236, 79, 'buy', 'пока'),
-(243, 84, 'cat', 'кот'),
-(244, 84, 'dog', 'собака'),
 (245, 84, 'orange', 'оранжевый'),
 (246, 84, 'four', 'четыре'),
-(247, 84, 'one', 'один'),
-(248, 84, 'two', 'два'),
-(249, 84, 'куц', 'йкйуц'),
-(250, 84, 'куцrereqw', 'йкйуцrwrew'),
-(251, 84, 'rwere', 'e'),
-(252, 84, 'арпа', 'hnh'),
-(253, 84, 'арпа4234', 'hnh42343'),
-(254, 84, '232', 'hmjhmj'),
-(262, 85, 'fine', 'хорошо'),
-(263, 85, 'five', 'пять'),
-(264, 85, 'four', '4'),
-(265, 85, 'six', 'шесть'),
-(268, 87, 'йуцкйуц', 'йцкцу'),
-(269, 87, 'кйцуку', 'кйуцкуцк'),
-(270, 87, '42214', '12412'),
-(271, 87, '4123', '1234'),
-(272, 87, '23', '232323'),
-(273, 87, 'sdvsdds', 'vsdvdsvsd'),
-(274, 90, 'rewqr', 'qrewq'),
-(275, 90, 'ewee', 'eee'),
-(276, 90, '11111111', '1111111'),
-(277, 90, '11111111adsfads', '111111fdsfds1'),
 (366, 95, 'cheers', 'ваше здоровье'),
 (367, 95, 'comrades', 'товарищи'),
 (368, 95, 'council', 'совет'),
@@ -111,15 +92,23 @@ INSERT INTO `unlearned_words` (`id`, `user_id`, `word`, `translate`) VALUES
 (377, 95, 'hell', 'ад, чёрт'),
 (378, 95, 'hide', 'прятать, скрывать'),
 (379, 95, 'keep', 'держать, сохранять'),
-(380, 96, '2', '2'),
-(381, 96, '3', '3'),
-(382, 96, '4', '4'),
-(383, 96, '5', '4'),
-(384, 96, '6', '6'),
-(386, 97, '11111111', '111111111'),
-(443, 93, '1', '22'),
-(444, 93, '2', '2'),
-(446, 93, '134123', '124132');
+(453, 93, '2', '2'),
+(454, 93, '3', '3'),
+(455, 93, 'fsdfdsa', 'fasdfdsafd'),
+(457, 93, '111', '11'),
+(458, 93, '123123', '123243'),
+(465, 93, '7987', '111111111'),
+(466, 93, '77987897', '231321231321'),
+(467, 93, '7897987', '75654654'),
+(468, 93, '7987897', '200000'),
+(469, 93, 'one', 'один'),
+(470, 93, 'two', 'два'),
+(471, 93, 'three', 'три'),
+(472, 93, 'four', 'четыре'),
+(473, 93, 'one', 'один'),
+(474, 93, 'two', 'два'),
+(475, 93, 'three', 'три'),
+(476, 93, 'four', 'четыре');
 
 -- --------------------------------------------------------
 
@@ -163,6 +152,12 @@ INSERT INTO `users` (`id`, `login`, `password`, `privilege`, `ban`) VALUES
 --
 
 --
+-- Индексы таблицы `categories_words`
+--
+ALTER TABLE `categories_words`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `learned_words`
 --
 ALTER TABLE `learned_words`
@@ -185,16 +180,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `categories_words`
+--
+ALTER TABLE `categories_words`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
 -- AUTO_INCREMENT для таблицы `learned_words`
 --
 ALTER TABLE `learned_words`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT для таблицы `unlearned_words`
 --
 ALTER TABLE `unlearned_words`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=447;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=477;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
