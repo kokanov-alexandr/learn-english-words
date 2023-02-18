@@ -1,6 +1,6 @@
 <?php
     require_once "../../settings/db_connect.php";
-
+    session_start();
     $login = $_POST['login'];
     $password = $_POST['password'];
     $query = mysqli_query($connect, "SELECT * FROM `users` WHERE `users`.`login` = '$login'");
@@ -26,5 +26,4 @@
     }
 
     $user = mysqli_fetch_all(mysqli_query($connect, "SELECT `id` FROM `users` WHERE `users`.`login` = '$login';"));
-    $id = $user[0][0];
-    setcookie("user", $id, time() + 3600 * 12, "/");
+    $_SESSION["user"] =  $user[0][0];

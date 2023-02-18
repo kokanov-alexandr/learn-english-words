@@ -1,5 +1,6 @@
 <?php
     require_once "../../settings/db_connect.php";
+    session_start();
     $login = $_POST["ban-login"];
 
     if (strlen($login) < 1) {
@@ -18,11 +19,11 @@
         echo "Пользователь уже заблокирован!";
         return;
     }
-    $user_id = $_COOKIE['user'];
+    $user_id = $_SESSION['user'];
     if ($login == mysqli_fetch_all(mysqli_query($connect, "SELECT `login` FROM `users`  WHERE `users`.`id` = '$user_id'"))[0][0]) {
         echo "Невозможно заблокировать самого себя!";
         return;
     }
-//    if (mysqli_query($connect, "UPDATE `users` SET `users`.`ban` = '1' WHERE `users`.`login` = '$login'")) {
-//        echo "Пользователь успешно заблокирован!";
-//    }
+    if (mysqli_query($connect, "UPDATE `users` SET `users`.`ban` = '1' WHERE `users`.`login` = '$login'")) {
+        echo "Пользователь успешно заблокирован!";
+    }

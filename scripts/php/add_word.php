@@ -1,8 +1,9 @@
 <?php
     require_once "../../settings/db_connect.php";
+    session_start();
     $word = $_POST["word"];
     $translate = $_POST["translate"];
-    $id = $_COOKIE['user'];
+    $id = $_SESSION['user'];
 
     if (strlen($word) < 1) {
         echo "Введите слово!";

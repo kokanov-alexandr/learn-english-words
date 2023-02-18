@@ -1,6 +1,6 @@
 <?php
     require_once '../../settings/db_connect.php';
-
+    session_start();
     $login = $_POST['login'];
     $password =$_POST['password'];
     $password_repeat = $_POST['password_repeat'];
@@ -30,8 +30,7 @@
     $password = hash("sha512", $_POST['password']);
     mysqli_query($connect, " INSERT INTO `users` (`id`, `login`, `password`) VALUES (NULL, '$login', '$password');");
     $user = mysqli_fetch_all(mysqli_query($connect, "SELECT `id` FROM `users` WHERE `users`.`login` = '$login';"));
-    $id = $user[0][0];
-    setcookie("user", $id, time() + 3600 * 12, "/");
+    $_SESSION['user'] = $user[0][0];
 
 
 

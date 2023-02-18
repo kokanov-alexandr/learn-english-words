@@ -11,9 +11,11 @@
 <body>
     <?php
         require_once "components/header.php";
+        require_once "settings/db_connect.php";
+        session_start();
     ?>
     <h2>Learn English Words!</h2>
-    <?php if ($_COOKIE["user"] == ""): ?>
+    <?php if ($_SESSION["user"] == ""): ?>
         <div class="mt-3 mb-5">
             <h3>Авторизация</h3>
         </div>
@@ -45,16 +47,25 @@
                 })
             });
         </script>
-    <?php else: ?>
-    <p>Привет! Чтобы выйти, нажмите <a href="scripts/php/sign_out.php">здесь</a></p>
-    <?php
+    <?php else:
+        $user_id = $_SESSION["user"];
+        $words = mysqli_fetch_all(mysqli_query($connect,  "SELECT * FROM `learned_words` WHERE `learned_words`.`user_id` = '$user_id'"));
+        $date = date('Y-m-d H:i:s');
+        foreach ($words as $word) {
+            if (round((strtotime($date)) - strtotime($word[4])) >= 10) {
+                mysqli_query($connect, "DELETE FROM `learned_words` WHERE `learned_words`.`id` = '$word[0]'");
+                mysqli_query($connect, "INSERT INTO `unlearned_words` (`id`, `user_id`, `word`, `translate`) VALUES (NULL, '$word[1]', '$word[2]', '$word[3]')");
+            }
+        }
+        ?>
+        <p>Привет! Чтобы выйти, нажмите <a href="scripts/php/sign_out.php">здесь</a></p>
+        <?php
         require "settings/db_connect.php";
-            $user_id = $_COOKIE['user'];
-            $privilege = mysqli_fetch_all(mysqli_query($connect, "SELECT `privilege` FROM `users` WHERE `users`.`id` = '$user_id' AND `privilege` = '1'"));
-            if ($privilege) {
-                require_once "pages/admin_panel.php";
-             } ?>
-
-    <?php endif;?>
+        $user_id = $_SESSION['user'];
+        $privilege = mysqli_fetch_all(mysqli_query($connect, "SELECT `privilege` FROM `users` WHERE `users`.`id` = '$user_id' AND `privilege` = '1'"));
+        if ($privilege) {
+            require_once "pages/admin_panel.php";
+        } ?>
+    <?php endif; ?>
 </body>
 </html>

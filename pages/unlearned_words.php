@@ -11,22 +11,14 @@
     <?php
         require_once "../components/header.php";
         require_once  "../settings/db_connect.php";
+        session_start();
     ?>
     <div class="mt-3 mb-5">
         <h3>Невыученные слова</h3>
     </div>
     <?php
-    if ($_COOKIE["user"] != ""):
-        $user_id = $_COOKIE["user"];
-        $words = mysqli_fetch_all(mysqli_query($connect,  "SELECT * FROM `learned_words` WHERE `learned_words`.`user_id` = '$user_id'"));
-        $date = date('Y-m-d H:i:s');
-        foreach ($words as $word) {
-            if (round((strtotime($date)) - strtotime($word[4])) / 3600 >= 24) {
-                mysqli_query($connect, "DELETE FROM `learned_words` WHERE `learned_words`.`id` = '$word[0]'");
-                mysqli_query($connect, "INSERT INTO `unlearned_words` (`id`, `user_id`, `word`, `translate`) VALUES (NULL, '$word[1]', '$word[2]', '$word[3]')");
-            }
-        }
-
+    if ($_SESSION["user"] != ""):
+        $user_id = $_SESSION["user"];
         $words = mysqli_fetch_all(mysqli_query($connect,  "SELECT * FROM `unlearned_words` WHERE `unlearned_words`.`user_id` = '$user_id'"));
         if (!count($words)) {
             echo "Здесь пока нет слов!";

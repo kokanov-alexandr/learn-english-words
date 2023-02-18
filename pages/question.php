@@ -8,10 +8,11 @@
     <?php
         require_once "../components/header.php";
         require_once "../settings/db_connect.php";
-        $word = unserialize($_COOKIE['words'])[$_COOKIE['index_question']][2];
+        session_start();
+        $word = $_SESSION['words'][$_SESSION['index_question']][2];
     ?>
         <form id="answer-form" action="../pages/test.php" method="post">
-            <p>Вопрос № <?=$_COOKIE['index_question'] + 1?> из <?=$_COOKIE['count_questions']?></p>
+            <p>Вопрос № <?=$_SESSION['index_question'] + 1?> из <?=$_SESSION['count_questions']?></p>
             <p><?=$word?></p>
             <input type="text" placeholder="Введите перевод" id="answer" name="answer" class="form-control">
             <button type="submit" class="btn btn-outline-dark mt-4 mb-2">Далее</button>

@@ -1,5 +1,6 @@
 <?php
     require_once "settings/db_connect.php";
+    session_start();
 ?>
 <div>
 

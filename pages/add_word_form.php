@@ -10,11 +10,12 @@
 <body>
     <?php
         require_once "../components/header.php";
+        session_start();
     ?>
     <div class="mt-3 mb-5">
         <h3>Добавление слова</h3>
     </div>
-    <?php  if ($_COOKIE["user"] != ""): ?>
+    <?php  if ($_SESSION["user"] != ""): ?>
     <form id="add-word-form">
         <div>
             <span class="text-danger" id="word-error-mes"></span>

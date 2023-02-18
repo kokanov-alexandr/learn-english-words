@@ -1,5 +1,6 @@
 <?php
     require_once "../../settings/db_connect.php";
+    session_start();
     $login = $_POST["admin-login"];
 
     if (strlen($login) < 1) {
