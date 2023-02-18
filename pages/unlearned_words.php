@@ -29,9 +29,9 @@
             <tr>
             <td><?=$i + 1 . ") " . $words[$i][2] . " - " . $words[$i][3]?></td>
             <td>
-                <form action="../scripts/php/delete_word.php" method="post">
+                <form class="m-3" action="../scripts/php/delete_word.php" method="post">
                     <input type="text" name="id" value="<?=$words[$i][0]?>"  style="display:none">
-                    <button type="submit" name="btn-delete-word">X</button>
+                    <button type="submit" name="btn-delete-word" class="btn btn-outline-dark  mx-2 p-0 px-2"  >x</button>
                 </form>
             </td>
         </tr>
