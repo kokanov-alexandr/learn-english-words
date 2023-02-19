@@ -9,4 +9,4 @@
         mysqli_query($connect, "INSERT INTO `categories_words` (`id`, `category`, `word`, `translate`) VALUES (NULL, '$category_name', '$word', '$translate');");
     }
 
-    header("Location: ../../index.php");
+    header("Location: ../../pages/add_words_category_form.php");

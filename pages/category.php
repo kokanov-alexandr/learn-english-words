@@ -22,10 +22,39 @@
        <?php
        }
     ?>
-    <form action="../scripts/php/user_add_category.php" method="post">
+    <form id="add-category-form">
         <input type="text" name="category" value="<?=$category?>" style="display: none">
         <button type="submit" class="btn btn-outline-dark mt-2, mb-2">Добавить слова к себе</button>
+        <div>
+            <span id="add-category-mes"></span>
+        </div>
     </form>
+
+    <script>
+        $('#add-category-form').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: "../scripts/php/user_add_category.php",
+                method: 'post',
+                data: $(this).serialize(),
+                success: function (data) {
+                    switch (data) {
+                        case "Слова уже добавлены!":
+                            $("#add-category-mes").addClass("text-danger");
+                            $("#add-category-mes").removeClass("text-success");
+                            $("#add-category-mes").text(data);
+                            break;
+                        default:
+                            $("#add-category-mes").addClass("text-danger");
+                            $("#add-category-mes").removeClass("text-success");
+                            $("#add-category-mes").text(data);
+                    }
+
+                },
+            })
+        });
+    </script>
+
 
     <?php
     $user_id = $_SESSION['user'];
@@ -38,6 +67,8 @@
     <?php
     }
     ?>
+
+
 
 </body>
 </html>

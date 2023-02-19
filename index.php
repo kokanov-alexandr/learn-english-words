@@ -67,7 +67,7 @@
 
         <p>Привет! Чтобы выйти, нажмите <a href="scripts/php/sign_out.php">здесь</a></p>
         <?php
-        require_once "pages/categories.php";
+        require_once "pages/last_categories.php";
 
         $user_id = $_SESSION['user'];
         $privilege = mysqli_fetch_all(mysqli_query($connect, "SELECT `privilege` FROM `users` WHERE `users`.`id` = '$user_id' AND `privilege` = '1'"));
