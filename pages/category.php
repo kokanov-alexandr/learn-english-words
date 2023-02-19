@@ -45,8 +45,8 @@
                             $("#add-category-mes").text(data);
                             break;
                         default:
-                            $("#add-category-mes").addClass("text-danger");
-                            $("#add-category-mes").removeClass("text-success");
+                            $("#add-category-mes").addClass("text-success");
+                            $("#add-category-mes").removeClass("text-danger");
                             $("#add-category-mes").text(data);
                     }
 
@@ -57,9 +57,7 @@
 
 
     <?php
-    $user_id = $_SESSION['user'];
-    $privilege = mysqli_fetch_all(mysqli_query($connect, "SELECT `privilege` FROM `users` WHERE `users`.`id` = '$user_id' AND `privilege` = '1'"));
-    if ($privilege) { ?>
+    if ($_SESSION["admin"]) { ?>
     <form action="../scripts/php/delete_words_category.php" method="post">
         <input type="text" name="category" value="<?=$category?>" style="display: none">
         <button type="submit" class="btn btn-outline-dark mt-2, mb-2">Удалить категорию</button>

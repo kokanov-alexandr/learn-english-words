@@ -10,7 +10,7 @@
 <body>
     <?php
         require "../components/header.php";
-require "../settings/db_connect.php";
+        require "../settings/db_connect.php";
         session_start();
     ?>
     <div class="mt-3 mb-5">

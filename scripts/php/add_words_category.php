@@ -8,5 +8,5 @@
         $translate = $_POST["translate" . $i];
         mysqli_query($connect, "INSERT INTO `categories_words` (`id`, `category`, `word`, `translate`) VALUES (NULL, '$category_name', '$word', '$translate');");
     }
-
+    unset($_SESSION["categories"]);
     header("Location: ../../pages/add_words_category_form.php");

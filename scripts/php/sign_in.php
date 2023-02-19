@@ -25,5 +25,7 @@
         return;
     }
 
-    $user = mysqli_fetch_all(mysqli_query($connect, "SELECT `id` FROM `users` WHERE `users`.`login` = '$login';"));
+    $user = mysqli_fetch_all(mysqli_query($connect, "SELECT * FROM `users` WHERE `users`.`login` = '$login';"));
     $_SESSION["user"] =  $user[0][0];
+    $_SESSION["admin"] = $user[0][3];
+

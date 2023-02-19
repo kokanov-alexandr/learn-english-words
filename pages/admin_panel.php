@@ -2,13 +2,15 @@
     require_once "settings/db_connect.php";
     session_start();
 ?>
+<form action="../pages/add_words_category_form.php">
+    <button type="submit" class="btn btn-outline-dark mb-4" >Добавить категорию слов</button>
+</form>
 <div>
-
     <form id="ban-form">
         <p class="m-1">Заблокировать</p>
         <input type="text" name="ban-login" placeholder="Введите логин" class="form-control mb-2">
         <span id="bun-error" class="m-0"></span><br>
-        <button type="submit" class="btn btn-outline-dark  mt-2" style="height: 37px">Заблокировать</button>
+        <button type="submit" class="btn btn-outline-dark  mt-2" style="height: 37px">Заблокировать пользователя</button>
     </form>
 </div>
 <br>
@@ -46,10 +48,10 @@
 </script>
 <div>
     <form id="add-admin-form">
-        <p>Назначить админом</p>
+        <p>Назначить администратором</p>
         <input type="text" name="admin-login" placeholder="Введите логин" class="form-control mb-2">
         <span id="admin-error" class="m-0"></span><br>
-        <button type="submit" class="btn btn-outline-dark mt-2" >Назначить админом</button>
+        <button type="submit" class="btn btn-outline-dark mt-2" >Назначить администратором</button>
     </form>
 </div>
 <br>
@@ -82,21 +84,6 @@
         })
     })
 </script>
-<form action="../pages/add_words_category_form.php">
-    <button type="submit" class="btn btn-outline-dark mt-2 mb-4" >Добавить категорию слов</button>
-</form>
-    <h3>Пользователи сайта</h3>
     <?php
-    $users = mysqli_fetch_all(mysqli_query($connect, "SELECT `login` FROM `users`"));
-
-    for ($i = 0; $i < count($users); $i++) {
-        $s = $i + 1 . ") " . $users[$i][0]?>
-        <p class="bg-light"><?=$s?></p>
-    <?php
-    }
+        require_once "pages/last_users.php";
     ?>
-
-<br>
-<br>
-<br>
-

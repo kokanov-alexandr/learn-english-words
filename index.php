@@ -52,7 +52,6 @@
         </script>
 
     <?php else:
-
         $user_id = $_SESSION["user"];
         $words = mysqli_fetch_all(mysqli_query($connect,  "SELECT * FROM `learned_words` WHERE `learned_words`.`user_id` = '$user_id'"));
         $date = date('Y-m-d H:i:s');
@@ -62,19 +61,14 @@
                 mysqli_query($connect, "INSERT INTO `unlearned_words` (`id`, `user_id`, `word`, `translate`) VALUES (NULL, '$word[1]', '$word[2]', '$word[3]')");
             }
         }
-
-        ?>
-
-        <p>Привет! Чтобы выйти, нажмите <a href="scripts/php/sign_out.php">здесь</a></p>
-        <?php
         require_once "pages/last_categories.php";
-
-        $user_id = $_SESSION['user'];
-        $privilege = mysqli_fetch_all(mysqli_query($connect, "SELECT `privilege` FROM `users` WHERE `users`.`id` = '$user_id' AND `privilege` = '1'"));
-        if ($privilege) {
+        if ($_SESSION["admin"]) {
             require_once "pages/admin_panel.php";
         } ?>
-
+        <form action="scripts/php/sign_out.php">
+            <button class="btn btn-outline-dark mb-5" type="submit">Выход</button>
+        </form>
     <?php endif; ?>
+
 </body>
 </html>
