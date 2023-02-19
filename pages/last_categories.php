@@ -4,7 +4,7 @@
     $categories = mysqli_fetch_all(mysqli_query($connect, "SELECT DISTINCT `category` FROM `categories_words`")); ?>
     <h3>Новые категории слов</h3>
     <?php
-    for ($i = count($categories) - 1; $i > 0 && $i > count($categories) - 6; $i--) { ?>
+    for ($i = count($categories) - 1; $i >= 0 && $i > count($categories) - 6; $i--) { ?>
         <h5><a href = "../pages/category.php?category=<?= $categories[$i][0]?>" ><?= $categories[$i][0] ?></a></h5>
         <?php
     }

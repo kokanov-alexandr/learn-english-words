@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 192.168.160.152:3306
--- Время создания: Фев 18 2023 г., 18:03
+-- Время создания: Фев 19 2023 г., 17:44
 -- Версия сервера: 8.0.29
 -- Версия PHP: 7.1.33
 
@@ -39,10 +39,69 @@ CREATE TABLE `categories_words` (
 --
 
 INSERT INTO `categories_words` (`id`, `category`, `word`, `translate`) VALUES
-(15, 'цифры', 'one', 'один'),
-(16, 'цифры', 'two', 'два'),
-(17, 'цифры', 'three', 'три'),
-(18, 'цифры', 'four', 'четыре');
+(278, 'Домашние животные', 'сat', 'кот'),
+(279, 'Домашние животные', 'kitten', 'котенок'),
+(280, 'Домашние животные', 'dog', 'собака'),
+(281, 'Домашние животные', 'hamster', 'хомяк'),
+(282, 'Домашние животные', 'parrot', 'попугай'),
+(283, 'Домашние животные', 'guinea pig', 'морская свинка'),
+(284, 'Фермерские животные', 'chicken', 'курица'),
+(285, 'Фермерские животные', 'rooster', 'петух'),
+(286, 'Фермерские животные', 'turkey', 'индейка'),
+(287, 'Фермерские животные', 'gobbler', 'индюк'),
+(288, 'Фермерские животные', 'goat', 'коза'),
+(289, 'Фермерские животные', 'sheep', 'овца'),
+(290, 'Фермерские животные', 'ram', 'баран'),
+(291, 'Фермерские животные', 'lamb', 'ягненок'),
+(292, 'Фермерские животные', 'bull', 'бык'),
+(294, 'Фермерские животные', 'cow', 'корова'),
+(295, 'Фермерские животные', 'horse', 'лошадь'),
+(296, 'Фермерские животные', 'stallon', 'жеребек'),
+(297, 'Фермерские животные', 'colt', 'жеребенок'),
+(298, 'Фермерские животные', 'mare', 'кобыла'),
+(299, 'Фермерские животные', 'pig', 'свинья'),
+(300, 'Фермерские животные', 'sow', 'самка свиньи'),
+(301, 'Фермерские животные', 'piglet', 'поросенок'),
+(302, 'Фермерские животные', 'rabbit', 'кролик'),
+(304, 'Части головы', 'head', 'голова'),
+(305, 'Части головы', 'face', 'лицо'),
+(306, 'Части головы', 'forehead', 'лоб'),
+(307, 'Части головы', 'ear', 'ухо'),
+(308, 'Части головы', 'eye', 'глаз'),
+(309, 'Части головы', 'cheek', 'щека'),
+(310, 'Части головы', 'nose', 'нос'),
+(311, 'Части головы', 'mouth', 'рот'),
+(312, 'Части головы', 'chin', 'подбородок'),
+(313, 'Части головы', 'neck', 'шея'),
+(314, 'Органы', 'brain', 'мозг'),
+(315, 'Органы', 'trachea', 'трахея'),
+(316, 'Органы', 'lungs', 'легкие'),
+(317, 'Органы', 'heart', 'сердце'),
+(318, 'Органы', 'liver', 'печень'),
+(319, 'Органы', 'stomach', 'желудок'),
+(320, 'Органы', 'kidneys', 'почки'),
+(321, 'Органы', 'intestines', 'кишечник'),
+(322, 'Органы', 'larynx', 'гортань'),
+(323, 'Органы', 'arteries', 'артерии'),
+(324, 'Органы', 'gallbladder', 'желчный пузырь'),
+(325, 'Органы', 'spleen', 'селезенка'),
+(326, 'Органы', 'urinary bladder', 'мочевой пузырь'),
+(327, 'Органы', 'appendix', 'аппендикс'),
+(328, 'Овощи', 'Potato', 'картофель'),
+(329, 'Овощи', 'Tomato', 'помидор'),
+(330, 'Овощи', 'Carrot', 'морковь'),
+(331, 'Овощи', 'Cabbage', 'капуста'),
+(332, 'Овощи', 'Pepper', 'перец'),
+(333, 'Овощи', 'Eggplant', 'баклажан'),
+(334, 'Овощи', 'Cauliflower', 'цветная капуста'),
+(335, 'Овощи', 'Onion', 'лук'),
+(336, 'Овощи', 'Garlic', 'чеснок'),
+(337, 'Овощи', 'Parsley', 'петрушка'),
+(338, 'Овощи', 'Celery', 'сельдерей'),
+(339, 'Овощи', 'Radish', 'редиска'),
+(340, 'Овощи', 'Cucumber', 'огурец'),
+(341, 'Овощи', 'Beets', 'свекла'),
+(342, 'Овощи', 'Ginger', 'имбирь');
 
 -- --------------------------------------------------------
 
@@ -92,23 +151,10 @@ INSERT INTO `unlearned_words` (`id`, `user_id`, `word`, `translate`) VALUES
 (377, 95, 'hell', 'ад, чёрт'),
 (378, 95, 'hide', 'прятать, скрывать'),
 (379, 95, 'keep', 'держать, сохранять'),
-(453, 93, '2', '2'),
-(454, 93, '3', '3'),
-(455, 93, 'fsdfdsa', 'fasdfdsafd'),
-(457, 93, '111', '11'),
-(458, 93, '123123', '123243'),
-(465, 93, '7987', '111111111'),
-(466, 93, '77987897', '231321231321'),
-(467, 93, '7897987', '75654654'),
-(468, 93, '7987897', '200000'),
-(469, 93, 'one', 'один'),
-(470, 93, 'two', 'два'),
-(471, 93, 'three', 'три'),
-(472, 93, 'four', 'четыре'),
-(473, 93, 'one', 'один'),
-(474, 93, 'two', 'два'),
-(475, 93, 'three', 'три'),
-(476, 93, 'four', 'четыре');
+(487, 95, 'one', 'один'),
+(488, 95, 'two', 'два'),
+(489, 95, 'three', 'три'),
+(490, 95, 'four', 'четыре');
 
 -- --------------------------------------------------------
 
@@ -130,22 +176,17 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `login`, `password`, `privilege`, `ban`) VALUES
 (78, '412334', '22e7e9d85b7fe6004f7b9f3aa592ea9ec9ce098682e8192fa83785f1784c768d1d1ac3b8afcae88666f66aec24739ac133e9d4adc7506f1a5f1f6078cb27c674', 1, 1),
-(80, 'rucode4user382431232', 'b0412597dcea813655574dc54a5b74967cf85317f0332a2591be7953a016f8de56200eb37d5ba593b1e4aa27cea5ca27100f94dccd5b04bae5cadd4454dba67d', 1, 1),
 (81, '111111', 'b0412597dcea813655574dc54a5b74967cf85317f0332a2591be7953a016f8de56200eb37d5ba593b1e4aa27cea5ca27100f94dccd5b04bae5cadd4454dba67d', 1, 1),
 (82, '222222', '8d2e1d45e47aeaeaad4c908af5e66b1fbe877609fcd31e9f07bc3e210d817d5924dd23039f8c96bce732b34956e3e96a97f72b86850c8ce03c975444899b501c', 1, NULL),
 (83, '3132123231', '25498ea40376aa5c8a279479fedf9dd9d8a45e0e014cd6527ec6ec5081cdf0a56f3f323470e475819e4cb6ab8d0c333f3a51eac1fca9ba1de75745c66ce29f53', NULL, NULL),
-(84, 'Коканов Александр', 'fc06d8be6e7971aece2a7dc531ab823d0cc8886ce344ddaae122563f6eb875a20ece532dbf9fc8d354e22ea62ad15b4cf693b118f0dfa215b55f91eb1a5b518d', NULL, NULL),
-(85, 'rucode4user382414234', '1878bdb49929bcf9136413af381b8fc01010a4ebce87b77fed9b736deeef1436fc1fcc0ace834132d5f799ff8d26e976dbdd07f9a9c989263c09f76a98a2a1f6', NULL, NULL),
-(86, 'rucode4user3824роролр', 'e818abce0083d24e366b6a6eddde7b4f42395a47d5af01ea18ea2d6c190a754fe768b8bf0963dd1ca80627f4afe3a80b5fa5ab8cc8595c7e1f534d280f5c9598', NULL, NULL),
-(88, 'rucode5-user-0840', '3b276823683869f7f22617b9460a7b30dfcb95f1ba804d15eac2c50a080745a54fac8de6a4a135d07c73d20be3236afecc44ea85cb560414ce852164df79a3c6', NULL, NULL),
-(89, 'kokanov142343', '967b589bdb7d4029dbb74d625c4ee0f6e2efc97fcf1154a7cc0441b90741cd309921bb74174485451143c5fcb8ee13126a39917900ebb19136bfabe2e45fdcca', NULL, 1),
 (92, '41234312', '0125c6c0b1be373c61b8a46c64696e3228b94b69071b1af0c8b08f3a69d53088e256e617ce2821390a2ca748ccf855d44d79fa09e05fcc59f9a7a1e9948e8d51', NULL, 1),
 (93, 'admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', 1, NULL),
-(94, 'class=\"btn btn-outline-dark mt-2, mb-2\"', 'a3cc9fba9795ac121b347ea06669ea1fdbcc88aeaf144b87379ae41c957f88df1b488c9f57c84565818541f0cc7b3c5a106290ddab75dc928b5dc2b547b68052', NULL, NULL),
-(95, 'kokanov', '62ac9eaad033df9af742fedd4f6a634a861d69580026669184efe4024e69e0942a5b4e762280fa5663139db654d0cea60efc2e4aa3db47547f3d26a4cb360cd1', NULL, NULL),
 (96, '111111111111111111111111111111', 'e51ff1957f5b97fdaa2c525fa61ac6414e6481ff6f4d61fd53766bafb043f2237879d96e2a730d33877e2eb5b63df8a2e5afec516f5ac38399aa969b61d7ff0a', NULL, NULL),
-(97, 'rucode4user3824xasxas', 'f19e42e3fc5ea9fe39ee6d20cd3db1aa79dc5163f0d67dcee89b39322560dde81e820f0cabc28b8195534fc9f60fed86c3d9b4ceec50a52ecbc2436d0f96f3f5', NULL, NULL),
-(98, 'My_Test_Login', 'b0412597dcea813655574dc54a5b74967cf85317f0332a2591be7953a016f8de56200eb37d5ba593b1e4aa27cea5ca27100f94dccd5b04bae5cadd4454dba67d', NULL, NULL);
+(98, 'My_Test_Login', 'b0412597dcea813655574dc54a5b74967cf85317f0332a2591be7953a016f8de56200eb37d5ba593b1e4aa27cea5ca27100f94dccd5b04bae5cadd4454dba67d', 1, NULL),
+(99, '12121212', '591f110c5f0e1bdce3ce99ee4d25a60959f343e90d120e4d473e3ccae5811d5d07cd991a64b6f18ef670b772d48adbb9c08206bb99e621b60046b3921b204b77', NULL, NULL),
+(100, 'ae', 'ыаывавы', NULL, NULL),
+(101, 'фвапрп', 'sfsdf', NULL, NULL),
+(102, 'asdfd', 'asdfd', NULL, NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -183,7 +224,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `categories_words`
 --
 ALTER TABLE `categories_words`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=343;
 
 --
 -- AUTO_INCREMENT для таблицы `learned_words`
@@ -195,13 +236,13 @@ ALTER TABLE `learned_words`
 -- AUTO_INCREMENT для таблицы `unlearned_words`
 --
 ALTER TABLE `unlearned_words`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=477;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=515;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=194;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

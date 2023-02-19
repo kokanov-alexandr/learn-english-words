@@ -5,7 +5,13 @@
 <script>
     function AddQuestion() {
         let inputs = document.querySelectorAll('input[type="text"]')
-        let lastNum = ((inputs[inputs.length-1]).getAttribute('name'))[9];
+        let lastNum = ((inputs[inputs.length-1]).getAttribute('name'));
+        if (lastNum.length > 10) {
+            lastNum = lastNum[9] + lastNum[10];
+        }
+        else {
+            lastNum = lastNum[9];
+        }
         let nextNum = Number(lastNum) + 1;
 
         let elem1 = document.createElement("p");

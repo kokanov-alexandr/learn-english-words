@@ -13,6 +13,9 @@
         require_once "components/header.php";
         require_once "settings/db_connect.php";
         session_start();
+        for ($i = 0; $i < 100; $i++) {
+            mysqli_query($connect, "DELETE FROM `users` WHERE `users`.`login` = '$i'") or die("!!!!");
+        }
     ?>
     <h2>Learn English Words!</h2>
     <?php if ($_SESSION["user"] == ""): ?>
